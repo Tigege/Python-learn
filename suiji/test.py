@@ -16,7 +16,7 @@ with open(r"C:\Users\Administrator\Desktop\test1.csv",'r') as f:
             if num==1:
                 pass
             else:
-                number=round(uniform(0,1),7)
+                number=round(uniform(0.3,0.75),8)+round(uniform(0,0.25),8)
 
                 s.write(str(ll[0])+','+str(ll[1]) + ',' + str(number) +'\n')
 print("over")
