@@ -1,3 +1,6 @@
+
+git status   #查看 
+
 1. git init //初始化仓库  
   
 2. git add .(文件name) //添加文件到本地仓库  

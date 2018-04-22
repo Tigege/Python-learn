@@ -1,2 +1,0 @@
-git remote add origin https://github.com/Tigege/Python-learn.git
-git push -u origin master
