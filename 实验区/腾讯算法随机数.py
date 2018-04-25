@@ -8,11 +8,9 @@ with open(r"C:\Users\Administrator\Desktop\test1.csv",'r') as f:
     with open(r"C:\Users\Administrator\Desktop\submission.csv", 'a',encoding='utf-8') as s:
         for i in f:
             num=num+1
-
             l = i.strip()
             ll=l.split(',')
           #  print(ll)
-
             if num==1:
                 pass
             else:
