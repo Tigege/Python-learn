@@ -69,12 +69,14 @@ with tf.Session() as sess:
         for i in range(len(X_train)):
             # prepare feed data and run
             feed_dict = {X: [X_train[i]], y: [y_train[i]]}
-            print("x_train")
-            print(X_train[i])
+            # print("x_train")
+            #print(X_train[i])
             _, loss = sess.run([train_op, cost], feed_dict=feed_dict)
+            print("number:"+str(i))
+            print(sess.run(y_pred,feed_dict=feed_dict))
             total_loss += loss
         # display loss per epoch
-        print('Epoch: %04d, total loss=%.9f' % (epoch + 1, total_loss))
+        #print('Epoch: %04d, total loss=%.9f' % (epoch + 1, total_loss))
 
     # Accuracy calculated by TensorFlow
     accuracy = sess.run(acc_op, feed_dict={X: X_val, y: y_val})
