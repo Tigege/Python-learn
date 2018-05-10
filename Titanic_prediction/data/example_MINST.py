@@ -53,10 +53,10 @@ with tf.Session() as sess:
         for batch in range(n_batch):
             batch_xs, batch_ys = mnist.train.next_batch(batch_size)
             sess.run(train_step, feed_dict={x: batch_xs, y: batch_ys, keep_prob: 1.0})
+            acc = sess.run(accuracy, feed_dict={x: mnist.test.images, y: mnist.test.labels, keep_prob: 1.0})
+            print("Iter " + str(epoch) + ", Testing Accuracy= " + str(acc) )
 
         learning_rate = sess.run(lr)
-        acc = sess.run(accuracy, feed_dict={x: mnist.test.images, y: mnist.test.labels, keep_prob: 1.0})
-        print("Iter " + str(epoch) + ", Testing Accuracy= " + str(acc) + ", Learning Rate= " + str(learning_rate))
 
 
 
