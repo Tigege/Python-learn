@@ -33,9 +33,9 @@ test_sores=[]
 for alpha in alphas:
     clf = ExtraTreesClassifier(n_estimators=alpha, max_depth=None,
         min_samples_split=3, random_state=1)
-    sore=np.sqrt(-cross_val_score(clf,X_train,
-                                        y_train.ravel(),cv=10,
-                                        scoring='neg_mean_squared_error'))
+    sore=cross_val_score(clf,X_train,
+                                        y_train.ravel(),cv=5,
+                                        scoring='accuracy')
     test_sores.append(np.mean(sore))
     print("testing",str(alpha))
 print(test_sores)

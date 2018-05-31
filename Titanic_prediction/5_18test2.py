@@ -21,8 +21,8 @@ dataset_Y = data[["label"]].as_matrix()
 dataset_Y=np.array(dataset_Y).reshape(len(dataset_Y))
 
 X_train, X_test, y_train, y_test = train_test_split(dataset_X, dataset_Y,
-                                                  test_size=0.01,
-                                                  random_state=40)
+                                                  test_size=0.02,
+                                                  random_state=20)
 
 lgb_train = lgb.Dataset(X_train, y_train)
 lgb_eval = lgb.Dataset(X_test, y_test, reference=lgb_train)
@@ -49,7 +49,7 @@ params = {
     'num_leaves': 15,
     'max_depth': -1,
     'min_data_in_leaf': 450,
-    'learning_rate': 0.1,
+    'learning_rate': 0.001,
     'feature_fraction': 0.9,
     'bagging_fraction': 0.95,
     'bagging_freq': 5,
@@ -62,7 +62,7 @@ params = {
 print('Start training...')
 gbm = lgb.train(params,
                 lgb_train,
-                num_boost_round=4000,
+                num_boost_round=35000,
                 valid_sets=lgb_eval,
                 )
 
@@ -79,7 +79,7 @@ for ii in range(500):
         else:
             temp[i]=0
     acc=metrics.accuracy_score(y_test,temp)
-    print("acc="+str(acc)+"|| cat="+str(cat))
+    # print("acc="+str(acc)+"|| cat="+str(cat))
     if max<acc:
         max=acc
         remcat=cat
@@ -124,9 +124,9 @@ for i in range(len(pre)):
         pre[i]=1
     else:
         pre[i]=0
-with open("baidu_sub14.csv","w") as f:
+with open("baidu_sub16.csv","w") as f:
     for i in range(len(pre)):
         f.write(str(i+1)+","+str(int(pre[i]))+"\n")
-# print(acc1)
+
 print(acc)
 print("over")
