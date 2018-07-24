@@ -57,24 +57,24 @@ X_train, X_test, y_train, y_test = train_test_split(dataset_X, dataset_Y,
                                                   test_size=0.2,
                                                   random_state=45)
 
-# xgb1 = XGBClassifier(
-#      learning_rate =0.06,
-#      n_estimators=2700,
-#      max_depth=6,
-#      min_child_weight=1,
-#      gamma=0.21,
-#      subsample=0.8,
-#      colsample_bytree=0.75,
-#      objective= 'binary:logistic',
-#      nthread=2,
-#      scale_pos_weight=1,
-#      seed=25)
-# xgb1.fit(X_train,y_train)
-# print("stating predicting ..")
-# test_data=return_data.return_test_data()
-# pretest=xgb1.predict(test_data)
-# print("writing>>>")
-# write_to_file(pretest)
+xgb1 = XGBClassifier(
+     learning_rate =0.06,
+     n_estimators=2700,
+     max_depth=6,
+     min_child_weight=1,
+     gamma=0.21,
+     subsample=0.8,
+     colsample_bytree=0.75,
+     objective= 'binary:logistic',
+     nthread=2,
+     scale_pos_weight=1,
+     seed=25)
+xgb1.fit(X_train,y_train)
+print("stating predicting ..")
+test_data=return_data.return_test_data()
+pretest=xgb1.predict(test_data)
+print("writing>>>")
+write_to_file(pretest)
 
 # XGBmodelfit(xgb1,X_train,y_train,X_test,y_test)
 

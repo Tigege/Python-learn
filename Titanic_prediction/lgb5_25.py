@@ -1,15 +1,7 @@
-import pandas as pd
 import lightgbm as lgb
 from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.preprocessing import OneHotEncoder,LabelEncoder
-from scipy import sparse
-import os
-from sklearn import metrics
 import return_data2
-import time
 dataset_X,dataset_Y=return_data2.return_tarin_data()
-
 acc=[]
 randoms=[25]
 for random in randoms:
